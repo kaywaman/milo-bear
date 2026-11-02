@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
-  base: './', // Relative Pfade: läuft auf jedem statischen Hosting, auch in Unterordnern.
+  base: '/milo-bear/', // Relative Pfade: läuft auf jedem statischen Hosting, auch in Unterordnern.
   plugins: [
     react(),
     VitePWA({
