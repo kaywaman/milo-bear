@@ -1,0 +1,15 @@
+Baue mir eine Fittness App. Die App soll folgendes können:
+- Jugendlichen ab 12. Jahren helfen gesunder zu leben und zum Sport motivieren 
+- streaks verwenden mit Masskotchen wie bei duolingo 
+- das Maskottchen soll der Bär Paddington sein. 
+- Nach jedem streak oder Erfolg soll er eine von 5 emotes z.B. das Hemd platz vor Muskeln , er soll Feuer spuken oder die peru Flagge heben, und andere emotes wie bei duolingo haben 
+- mach es spielerisch und baue eine rank-liste ein sowie Pokale die man gewinnen kann 
+- lass dem Benutzer beim aller ersten Aufruf seine notwendigen Daten , wie Gewicht, Größe, alter und Ziel , angeben 
+- verwende diese Daten um ein idealen Plan für den Benutzer zu erstellen.  Zeige ihn an wie lange es dauern wird bis er sein Ziel erreichen kann 
+-gebe in der Startseite einen Motivationsspruch der sich jedes mal ändert wenn der Benutzer die App verlässt und mache einen button um auch dort den Spruch ändern zu können
+- setze deine Erfahrung ein (best practice) und überprüfe mein vorhaben. Falls noch Fragen offen sind lass es mich wissen bevor wir die App bauen 
+ 
+
+beim Cardio und Ganzkörper, give Übungsoptionen
+Verwende die letzte stabile version von React and MUI und mache die App responsive.
+Es soll auch in iPhone 13 schön aussehen  

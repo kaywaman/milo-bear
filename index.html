@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Milo – Your Fitness Bear</title>
+  <meta name="description" content="Milo the spectacled bear motivates you to move more and live healthier.">
+  <meta name="theme-color" content="#fff8ef">
+  <meta name="color-scheme" content="light dark">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Milo">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <style>
+    html { background: #fff8ef; }
+    html[data-theme="dark"] { background: #14100d; }
+  </style>
+  <script>
+    // Setzt den Modus vor dem ersten Bild, damit die App im Dunkeln nicht hell aufblitzt.
+    (function () {
+      var mode = null;
+      try { mode = localStorage.getItem('mui-mode'); } catch (e) { /* Privater Modus */ }
+      if (mode !== 'light' && mode !== 'dark') {
+        mode = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      document.documentElement.setAttribute('data-theme', mode);
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', mode === 'dark' ? '#14100d' : '#fff8ef');
+    }());
+  </script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+</html>

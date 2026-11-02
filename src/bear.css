@@ -1,0 +1,82 @@
+:root { --fur: #3d2a1f; --cream: #f4dfb9; --teal: #12a594; --primary: #ff6b35; }
+/* Im Dunkeln etwas helleres Fell plus Lichtkante, damit Milo sich vom Hintergrund abhebt. */
+[data-theme="dark"] { --fur: #56392a; }
+[data-theme="dark"] .bear { filter: drop-shadow(0 0 1px rgba(244, 223, 185, .75)) drop-shadow(0 0 12px rgba(244, 223, 185, .22)); }
+
+.bear { display: block; width: 100%; overflow: visible; }
+.bear .fur { fill: var(--fur); }
+.bear .ear-in { fill: #6f4b35; }
+.bear .ring { fill: var(--cream); }
+.bear .muzzle { fill: var(--cream); }
+.bear .nose, .bear .pupil { fill: #17100b; }
+.bear .smile { fill: none; stroke: #17100b; stroke-width: 4; stroke-linecap: round; }
+.bear .band { fill: var(--teal); }
+.bear .tee { fill: var(--primary); }
+.bear .tee-logo { fill: #fff; font: 900 38px system-ui, sans-serif; }
+.bear .muscle, .bear .bicep { fill: #6f4b35; }
+.bear .b-shadow { fill: rgba(61, 42, 31, .14); }
+.bear .pole { fill: #a9744a; }
+.bear .flame.f1 { fill: #ff6b35; }
+.bear .flame.f2 { fill: #ffa62b; }
+.bear .flame.f3 { fill: #ffe066; }
+.bear .pose, .bear .fire, .bear .sparks, .bear .shades, .bear .chest, .bear .mouth-open { display: none; }
+.bear .pose-idle { display: block; }
+.bear .mouth-open { fill: #7a1f12; }
+.bear .eyes { transform-origin: 120px 92px; animation: blink 4.5s infinite; }
+.bear:not(.emoting) .b-all { transform-origin: 120px 250px; animation: breathe 3.2s ease-in-out infinite; }
+.bear.emoting .pose-idle { display: none; }
+
+@keyframes blink { 0%, 94%, 100% { transform: scaleY(1); } 97% { transform: scaleY(.1); } }
+@keyframes breathe { 50% { transform: scale(1.02, .985); } }
+
+/* Emote 1: Hemd platzt */
+.bear.e-flex .pose-flex, .bear.e-flex .chest { display: block; }
+.bear.e-flex .shirt-l, .bear.e-flex .shirt-r, .bear.e-flex .tee-logo { transform-origin: 120px 190px; }
+.bear.e-flex .shirt-l { animation: rip-l 1s .45s cubic-bezier(.3, .8, .4, 1) forwards; }
+.bear.e-flex .shirt-r { animation: rip-r 1s .45s cubic-bezier(.3, .8, .4, 1) forwards; }
+.bear.e-flex .tee-logo { animation: gone .2s .45s forwards; }
+.bear.e-flex .b-all { transform-origin: 120px 250px; animation: pump .45s ease-in-out 3 alternate; }
+.bear.e-flex .bicep { transform-box: fill-box; transform-origin: center; animation: bulge .5s .5s ease-in-out infinite alternate; }
+@keyframes pump { to { transform: scale(1.06); } }
+@keyframes bulge { to { transform: scale(1.3); } }
+@keyframes rip-l { to { transform: translate(-130px, 70px) rotate(-70deg); opacity: 0; } }
+@keyframes rip-r { to { transform: translate(130px, 70px) rotate(70deg); opacity: 0; } }
+@keyframes gone { to { opacity: 0; } }
+
+/* Emote 2: Feuer spucken */
+.bear.e-fire .fire, .bear.e-fire .mouth-open { display: block; }
+.bear.e-fire .smile { display: none; }
+.bear.e-fire .fire { transform-origin: 140px 124px; animation: flame-in .3s ease-out, flicker .16s .3s infinite alternate; }
+.bear.e-fire .b-all { transform-origin: 120px 250px; animation: lean .35s ease-out forwards; }
+@keyframes flame-in { from { transform: scale(0); } }
+@keyframes flicker { to { transform: scale(1.06, .93); } }
+@keyframes lean { from { transform: translateX(14px); } to { transform: translateX(-16px); } }
+
+/* Emote 3: Peru-Flagge */
+.bear.e-flag .pose-flag { display: block; }
+.bear.e-flag .flag-arm { transform-origin: 170px 160px; animation: raise .5s ease-out; }
+.bear.e-flag .flag { transform-origin: 207px 4px; animation: wave .5s ease-in-out infinite alternate; }
+.bear.e-flag .b-all { transform-origin: 120px 250px; animation: hop .55s ease-in-out infinite alternate; }
+@keyframes raise { from { transform: rotate(60deg); } }
+@keyframes wave { from { transform: skewY(-5deg) scaleX(1); } to { transform: skewY(5deg) scaleX(.94); } }
+@keyframes hop { to { transform: translateY(-9px); } }
+
+/* Emote 4: Tanzen mit Sonnenbrille */
+.bear.e-dance .shades, .bear.e-dance .sparks { display: block; }
+.bear.e-dance .pose-flex { display: block; }
+.bear.e-dance .b-all { transform-origin: 120px 250px; animation: dance .5s ease-in-out infinite alternate; }
+.bear.e-dance .sparks { transform-origin: 120px 120px; animation: spin 3s linear infinite; }
+@keyframes dance { from { transform: rotate(-9deg) translateX(-8px); } to { transform: rotate(9deg) translateX(8px); } }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Emote 5: Pokal stemmen */
+.bear.e-cup .pose-cup, .bear.e-cup .sparks { display: block; }
+.bear.e-cup .cup { transform-origin: 120px 60px; animation: lift .7s ease-out, shine .6s .7s ease-in-out infinite alternate; }
+.bear.e-cup .sparks { transform-origin: 120px 120px; animation: spin 4s linear infinite; }
+@keyframes lift { from { transform: translateY(80px) scale(.6); } }
+@keyframes shine { to { transform: translateY(-8px) rotate(3deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .bear *, .bear { animation-duration: .01s !important; animation-iteration-count: 1 !important; }
+  .bear.e-flex .shirt-l, .bear.e-flex .shirt-r { animation-delay: 0s !important; }
+}
